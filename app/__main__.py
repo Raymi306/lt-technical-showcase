@@ -20,7 +20,7 @@ def _cleanup_commas(args, name):
 async def main():
     args = parser.parse_args()
     if len(args.albums) == 0:
-        parser.print_usage()
+        print(parser.format_usage())
         sys.exit(1)
     if args.albums is not None:
         _cleanup_commas(args.albums, 'albums')
@@ -33,10 +33,10 @@ async def main():
     path = Path('.') if args.out is None else Path(args.out)
     if not path.exists():
         print('output path does not exist')
-        sys.exit(1)
+        sys.exit(3)
     if not path.is_dir():
         print('output path is not a directory')
-        sys.exit(1)
+        sys.exit(4)
     async with aiohttp.ClientSession() as session:
         download_targets = []
         album_data = await asyncio.gather(
