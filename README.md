@@ -2,7 +2,7 @@
 jsonplaceholder.typicode album explorer
 
 ## Environment Expectations
-This code was written on Linux, but should theoretically work crossplatform.
+This code was written on Linux with Python 3.9, but should work crossplatform with a variety of Python3 versions.
 
 [Creating a virtual environment is recommended.](https://docs.python.org/3/library/venv.html)
 
