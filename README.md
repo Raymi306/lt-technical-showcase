@@ -14,7 +14,7 @@ To run tests, run:
 `python -m unittest`
 
 To lint, run:
-`pylint app && flake8 --ignore=E501, W504`
+`pylint app && flake8 --ignore=E501,W504`
 
 To run the application, run:
 `python -m app --help`
