@@ -19,7 +19,7 @@ def _cleanup_commas(args, name):
 
 async def main():
     args = parser.parse_args()
-    if len(args.albums) == 0:
+    if args.albums is None or len(args.albums) == 0:
         print(parser.format_usage())
         sys.exit(1)
     if args.albums is not None:

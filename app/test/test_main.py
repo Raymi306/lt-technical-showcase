@@ -23,6 +23,16 @@ JSON_SAMPLE = [
 
 
 class TestMain(IsolatedAsyncioTestCase):
+
+    @patch('__main__.__builtins__.print')
+    async def test_no_args_exits_1(self, mock_print):
+        test_args = ['progname']
+        with patch('__main__.sys.argv', test_args):
+            with self.assertRaises(SystemExit) as sys_exit:
+                await __main__.main()
+                self.assertEqual(1, sys_exit.exception.code)
+                mock_print.assert_called_once()
+
     @patch('__main__.__builtins__.print')
     async def test_no_albums_exits_1(self, mock_print):
         test_args = ['progname', '-a']
